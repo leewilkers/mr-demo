@@ -147,7 +147,7 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 
 .ph { display:inline-block; background:var(--tint); color:var(--quiet); font-size:var(--t-1); padding:6px 12px; }
 
-.shots{grid-template-columns:repeat(3,minmax(0,1fr))!important}.shots figure:first-child{grid-column:auto!important}@media (max-width:719px){.shots{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+.shots{grid-template-columns:repeat(4,minmax(0,1fr))!important}.shots figure:first-child{grid-column:auto!important}@media (max-width:719px){.shots{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 </style>
 </head>
 <body>
@@ -171,7 +171,7 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 <div class="act"><a class="btn" href="https://link.booksy.com/hairlovebyrose" target="_blank" rel="noopener">Book with Rose</a><a href="#prices">See the prices first</a></div>
 <p class="now" id="now">Open Monday, Tuesday, Wednesday and Friday.</p>
 </div>
-<div><img src="img/chair.jpg" alt="Rose with a smiling client in the chair" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center 25%;border-radius:var(--hero-r)"></div>
+<div><video autoplay muted loop playsinline preload="metadata" poster="img/chair.jpg" aria-label="Rose with a smiling client in the chair" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center 25%;border-radius:var(--hero-r);background:#ddd"><source src="https://d2kt395i2p6b75.cloudfront.net/01KZ9894CN1RD8QP2J9WZBFEVP/media/videos/01KZ9898Z6E4BDN0VKTEH499MJ/hls/playlist_720p.m4s" type="video/mp4"></video></div>
 </div>
 </div>
 
@@ -199,6 +199,8 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 <h2>Recent work</h2>
 <div class="stack-l">
 <div class="shots">
+<figure><video autoplay muted loop playsinline preload="metadata" poster="https://d2kt395i2p6b75.cloudfront.net/01KZ9894CN1RD8QP2J9WZBFEVP/media/videos/posters/01KZ9898Z7B77W2SCDEW5F22KA.jpg?class=preview" aria-label="Long blonde hair, finished" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center 30%;border-radius:0;background:#ddd"><source src="https://d2kt395i2p6b75.cloudfront.net/01KZ9894CN1RD8QP2J9WZBFEVP/media/videos/01KZ9898Z7B77W2SCDEW5F22KA/hls/playlist_720p.m4s" type="video/mp4"></video></figure>
+<figure><video autoplay muted loop playsinline preload="metadata" poster="https://d2kt395i2p6b75.cloudfront.net/01KZ9894CN1RD8QP2J9WZBFEVP/media/videos/posters/01KZ9898Z99RPEGQTJ87N4F9Y4.jpg?class=preview" aria-label="Colour from foils to finished blonde" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center 30%;border-radius:0;background:#ddd"><source src="https://d2kt395i2p6b75.cloudfront.net/01KZ9894CN1RD8QP2J9WZBFEVP/media/videos/01KZ9898Z99RPEGQTJ87N4F9Y4/hls/playlist_720p.m4s" type="video/mp4"></video></figure>
 <figure><img src="img/brunette.jpg" alt="Long glossy brunette hair, from behind" loading="lazy" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center;border-radius:0"></figure>
 <figure><img src="img/balayage.jpg" alt="Long hair with blended blonde color, side view" loading="lazy" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center 30%;border-radius:0"></figure>
 <figure><img src="img/pink.jpg" alt="Long blonde hair with pink highlights" loading="lazy" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center 30%;border-radius:0"></figure>
@@ -278,6 +280,10 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
     else { for (var i = 1; i <= 7; i++) { var d = (day + i) % 7; if (H[d]) { el.textContent = 'Closed now. Opens ' + (i === 1 ? 'tomorrow' : DAYS[d]) + ' at ' + fmt(H[d][0]) + '.'; break; } } }
   } catch (e) {}
 })();
+</script>
+<script>
+(function(){var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+document.querySelectorAll('video').forEach(function(v){if(rm){v.removeAttribute('autoplay');v.pause();v.controls=true;}else{var p=v.play();if(p&&p.catch)p.catch(function(){});}});})();
 </script>
 </body>
 </html>
