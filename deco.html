@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en" data-look="deco">
+<head>
+<meta name="robots" content="noindex,nofollow">
+<script src="gate.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maison Rose</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Figtree:wght@400;600;700&display=swap">
+
+<style>
+/* Plan
+   Grid: one label column and one content column (4fr / 8fr). Every section's content starts on the same left edge.
+   Type: seven sizes, three weights (400 text, 600 emphasis, 700 headings). One display size, used twice.
+   Space: one scale. Related things sit 8 to 16 apart, blocks 24 to 32, sections 72 to 112. */
+:root {
+  --paper:#FFFFFF; --ink:#111111; --quiet:#595959; --line:#D9D6D0; --tint:#F4F2EE; --link:#5A3A28;
+  --btn:#111111; --btn-t:#FFFFFF; --btn-r:999px; --hero-r:0px;
+  --text:'Bricolage Grotesque', 'Helvetica Neue', Arial, sans-serif;
+  --display:var(--text); --display-w:700; --display-ls:-0.025em; --display-lh:1.02; --display-k:1;
+  --t-1:15px; --t-2:16px; --t-3:18px; --t-4:clamp(20px, 1.7vw, 22px); --t-5:clamp(23px, 2.2vw, 28px);
+  --t-6:clamp(28px, 3.2vw, 40px); --t-7:clamp(38px, 6vw, 80px);
+  --s-1:8px; --s-2:12px; --s-3:16px; --s-4:24px; --s-5:32px; --s-6:48px; --s-sec:clamp(64px, 8vw, 112px);
+  --gap:clamp(24px, 4vw, 56px);
+  color-scheme: light;
+}
+:root[data-look="apothecary"] {
+  --paper:#DDE3D2; --ink:#1B2E23; --quiet:#3E5546; --line:#B5C0A8; --tint:#D0D8C3; --link:#5E3611;
+  --btn:#1B2E23; --btn-t:#EEF2E6; --btn-r:3px; --hero-r:999px 999px 0 0;
+  --text:Figtree, 'Helvetica Neue', Arial, sans-serif;
+  --display:'Cormorant Garamond', Georgia, serif; --display-w:700; --display-ls:-0.012em; --display-lh:0.98; --display-k:1.16;
+}
+:root[data-look="deco"] {
+  --paper:#0E1C2B; --ink:#F3E9D0; --quiet:#B8AE94; --line:#2C4159; --tint:#14273B; --link:#E3BE63;
+  --btn:#E3BE63; --btn-t:#0E1C2B; --btn-r:0px; --hero-r:999px 999px 0 0;
+  --text:Figtree, 'Helvetica Neue', Arial, sans-serif;
+  --display:'Poiret One', Georgia, sans-serif; --display-w:400; --display-ls:0.005em; --display-lh:1.08; --display-k:1.12;
+  color-scheme: dark;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; -webkit-text-size-adjust:100%; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:var(--text); font-size:var(--t-3); line-height:1.55; font-weight:400; padding-bottom:72px; text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } * { transition:none !important; animation:none !important; } }
+h1, h2, h3, p, ul, blockquote, figure { margin:0; padding:0; }
+a { color:var(--link); text-decoration-thickness:1px; text-underline-offset:0.18em; }
+a:hover { color:var(--ink); text-decoration-thickness:2px; }
+:focus-visible { outline:3px solid var(--link); outline-offset:3px; }
+.wrap { max-width:1160px; margin:0 auto; padding:0 clamp(20px, 4.5vw, 48px); }
+.quiet { color:var(--quiet); }
+
+/* type roles */
+.display { font-family:var(--display); font-weight:var(--display-w); letter-spacing:var(--display-ls); line-height:var(--display-lh); font-size:calc(var(--t-7) * var(--display-k)); text-wrap:balance; }
+h2 { font-weight:700; font-size:var(--t-6); line-height:1.12; letter-spacing:-0.02em; text-wrap:balance; }
+h3 { font-weight:600; font-size:var(--t-4); line-height:1.25; letter-spacing:-0.005em; }
+.lede { font-size:var(--t-5); line-height:1.3; letter-spacing:-0.01em; }
+.large { font-size:var(--t-4); line-height:1.45; }
+.small { font-size:var(--t-2); line-height:1.45; }
+p { max-width:62ch; }
+
+/* the one grid */
+.row { display:grid; grid-template-columns:minmax(0, 4fr) minmax(0, 8fr); column-gap:var(--gap); row-gap:var(--s-4); align-items:start; }
+@media (max-width: 859px) { .row { grid-template-columns:minmax(0, 1fr); } }
+.sec { padding-top:var(--s-sec); }
+.stack > * + * { margin-top:var(--s-3); }
+.stack-l > * + * { margin-top:var(--s-4); }
+
+.btn { display:inline-flex; align-items:center; justify-content:center; min-height:52px; background:var(--btn); color:var(--btn-t); padding:0 28px; border-radius:var(--btn-r); font-weight:600; font-size:17px; line-height:1; text-decoration:none; border:0; cursor:pointer; font-family:inherit; }
+.btn:hover { background:var(--link); color:var(--paper); text-decoration:none; }
+:root[data-look="deco"] .btn:hover { background:var(--ink); color:var(--paper); }
+.btn.s { min-height:44px; padding:0 20px; font-size:16px; }
+
+/* demo switcher */
+.demo { background:#1A1A1A; color:#fff; font:14px/1.2 system-ui, sans-serif; }
+.demo .wrap { display:flex; align-items:center; gap:12px; padding-top:8px; padding-bottom:8px; overflow-x:auto; white-space:nowrap; }
+.demo button { font:inherit; color:#fff; background:transparent; border:1px solid #777; padding:0 14px; min-height:44px; border-radius:999px; cursor:pointer; }
+.demo button[aria-pressed="true"] { background:#fff; color:#111; border-color:#fff; }
+.demo .note { color:#BDBDBD; }
+
+/* per-look devices */
+.dev { display:none; }
+[data-look="swatch"] .dev.swatch { display:flex; }
+[data-look="apothecary"] .dev.apothecary { display:block; }
+[data-look="deco"] .dev.deco { display:flex; }
+.stripe { height:12px; } .stripe i { flex:1; } .stripe.tall { height:clamp(48px, 7vw, 96px); }
+.rule2 { height:8px; border-top:3px solid var(--ink); border-bottom:1px solid var(--ink); }
+.fanrow { align-items:flex-end; margin-bottom:var(--s-5); }
+.fan { width:clamp(112px, 13vw, 168px); aspect-ratio:2 / 1; border-radius:999px 999px 0 0; background:repeating-radial-gradient(circle at 50% 100%, var(--link) 0 2px, var(--paper) 2px 13px); }
+.fanrow::after { content:""; flex:1; height:2px; background:var(--link); }
+
+header .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--s-2) var(--s-4); padding-top:var(--s-3); padding-bottom:var(--s-3); }
+.name { font-family:var(--display); font-weight:var(--display-w); font-size:calc(22px * var(--display-k)); letter-spacing:-0.01em; line-height:1; color:var(--ink); text-decoration:none; }
+nav { display:flex; align-items:center; gap:clamp(20px, 3vw, 36px); font-size:17px; }
+nav a.t { color:var(--ink); text-decoration:none; padding:12px 0; }
+nav a.t:hover { text-decoration:underline; text-decoration-thickness:2px; }
+.btn.mbook { display:none; }
+@media (max-width: 639px) { .btn.mbook { display:inline-flex; } nav .btn { display:none; } nav { width:100%; gap:28px; border-top:1px solid var(--line); } header .wrap { padding-bottom:0; row-gap:var(--s-3); } }
+
+.hero { padding-top:clamp(32px, 6vw, 80px); }
+.hero h1 { max-width:14ch; }
+:root[data-look="apothecary"] .hero h1 { max-width:19ch; }
+:root[data-look="deco"] .hero h1 { max-width:16ch; }
+:root[data-look="deco"] .name { font-family:var(--text); font-weight:600; font-size:21px; letter-spacing:0.01em; color:var(--link); }
+.hero .row { margin-top:clamp(28px, 4vw, 56px); align-items:start; }
+.act { display:flex; flex-wrap:wrap; align-items:center; gap:var(--s-3) var(--s-4); margin-top:var(--s-5); }
+.now { margin-top:var(--s-4); font-size:var(--t-2); color:var(--quiet); }
+.now.yes { color:var(--ink); font-weight:600; }
+
+#prices { background:var(--tint); margin-top:var(--s-sec); padding:var(--s-sec) 0; }
+#prices .head { position:sticky; top:var(--s-4); }
+@media (max-width: 859px) { #prices .head { position:static; } }
+.grp + .grp { margin-top:var(--s-6); }
+.grp h3 { padding-bottom:var(--s-2); border-bottom:2px solid var(--ink); }
+.grp ul { list-style:none; }
+.grp li { display:grid; grid-template-columns:minmax(0, 1fr) 7.5em 7.5em; column-gap:var(--s-3); align-items:baseline; padding:14px 0; border-bottom:1px solid var(--line); font-variant-numeric:tabular-nums; }
+.grp .n { font-size:var(--t-4); line-height:1.3; }
+.grp .n small { display:block; font-size:var(--t-2); color:var(--quiet); margin-top:2px; }
+.grp .d { font-size:var(--t-2); color:var(--quiet); text-align:right; }
+.grp .p { font-size:var(--t-4); font-weight:600; text-align:right; white-space:nowrap; }
+@media (max-width: 559px) {
+  .grp li { grid-template-columns:minmax(0, 1fr) auto; row-gap:2px; padding:12px 0; }
+  .grp .n { grid-column:1; grid-row:1; } .grp .p { grid-column:2; grid-row:1; } .grp .d { grid-column:1; grid-row:2; text-align:left; }
+}
+
+.shots { display:grid; grid-template-columns:minmax(0, 6fr) minmax(0, 3fr) minmax(0, 3fr); gap:var(--s-3); align-items:start; }
+@media (max-width: 559px) { .shots { grid-template-columns:repeat(2, minmax(0, 1fr)); } .shots figure:first-child { grid-column:1 / -1; } }
+figcaption { font-size:var(--t-2); line-height:1.4; margin-top:var(--s-1); }
+figcaption span { display:block; color:var(--quiet); }
+
+blockquote { font-size:var(--t-6); font-weight:600; line-height:1.18; letter-spacing:-0.015em; max-width:18ch; text-indent:-0.42em; }
+
+.find { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); gap:var(--s-5) var(--gap); }
+@media (max-width: 559px) { .find { grid-template-columns:minmax(0, 1fr); } }
+.addr { font-size:var(--t-5); font-weight:600; line-height:1.25; letter-spacing:-0.01em; }
+dl { margin:0; display:grid; grid-template-columns:auto 1fr; gap:6px var(--s-5); font-variant-numeric:tabular-nums; }
+dt, dd { margin:0; } dd { white-space:nowrap; } .off { color:var(--quiet); }
+
+.ask { margin-top:var(--s-sec); border-top:2px solid var(--ink); padding-top:var(--s-5); align-items:center; }
+
+footer { margin-top:var(--s-sec); }
+footer .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:var(--s-1) var(--s-5); padding-top:var(--s-4); padding-bottom:var(--s-5); font-size:var(--t-2); }
+footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
+
+.bar { position:fixed; left:0; right:0; bottom:0; z-index:6; background:var(--paper); border-top:1px solid var(--line); padding:10px 20px; display:flex; gap:12px; align-items:center; justify-content:space-between; transform:translateY(110%); transition:transform .25s; box-shadow:0 -6px 20px rgba(0,0,0,0.06); }
+.bar.on { transform:none; }
+.bar span { font-size:var(--t-1); line-height:1.3; }
+
+.ph { display:inline-block; background:var(--tint); color:var(--quiet); font-size:var(--t-1); padding:6px 12px; }
+</style>
+</head>
+<body>
+<div class="dev swatch stripe" aria-hidden="true"><i style="background:#2B1B14"></i><i style="background:#5A3A28"></i><i style="background:#8A5A3A"></i><i style="background:#B5683C"></i><i style="background:#CDA56E"></i><i style="background:#E8D3A6"></i></div>
+<div class="dev apothecary rule2" aria-hidden="true"></div>
+
+<header><div class="wrap">
+<a class="name" href="deco.html">Maison Rose</a>
+<a class="btn s mbook" href="https://link.booksy.com/hairlovebyrose" target="_blank" rel="noopener">Book with Rose</a>
+<nav aria-label="Main"><a class="t" href="#prices">Prices</a><a class="t" href="deco-about.html">About</a><a class="t" href="#find">Find us</a><a class="btn s" href="https://link.booksy.com/hairlovebyrose" target="_blank" rel="noopener">Book with Rose</a></nav>
+</div></header>
+
+<main id="top">
+<div class="wrap hero">
+<div class="dev deco fanrow" aria-hidden="true"><div class="fan"></div></div>
+<h1 class="display">A hair salon in Warrenton, Virginia.</h1>
+<div class="row">
+<div>
+<p class="lede">All hair welcome.</p>
+<p class="large quiet" style="margin-top:var(--s-2)">Cuts, color, curls and locs by Rose Wilkers.</p>
+<div class="act"><a class="btn" href="https://link.booksy.com/hairlovebyrose" target="_blank" rel="noopener">Book with Rose</a><a href="#prices">See the prices first</a></div>
+<p class="now" id="now">Open Monday, Tuesday, Wednesday and Friday.</p>
+</div>
+<div><div role="img" aria-label="Stand-in illustration: Rose with a client in the chair" style="height: 0px; border-radius: var(--hero-r); background: #CFC6B8; position: relative; overflow: hidden; height: auto; aspect-ratio: 16 / 10"><div style="position: absolute; left: 50%; bottom: -8%; width: 84%; height: 34%; transform: translateX(-50%); border-radius: 50% 50% 0 0 / 70% 70% 0 0; background: #1F1B18"></div><div style="position: absolute; left: 50%; top: 8%; width: 54%; height: 88%; transform: translateX(-50%); border-radius: 50% 50% 14% 14% / 24% 24% 5% 5%; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0) 40%, rgba(0,0,0,0.2) 100%), repeating-linear-gradient(91deg, #5A3A28 0 4px, #7C5438 4px 6px, #5A3A28 6px 11px, #3C2418 11px 13px)"></div><div style="position: absolute; left: 8px; bottom: 8px; font: 10px/1.2 system-ui, sans-serif; background: rgba(20,17,14,0.78); color: #FFFFFF; padding: 3px 6px; border-radius: 4px">Stand-in for a real photo</div></div></div>
+</div>
+</div>
+
+<section id="prices"><div class="wrap row">
+<div class="head stack">
+<h2 class="display">Prices</h2>
+<p class="quiet">Every service, what it costs and how long it takes. A price marked “from” can go up with length and thickness.</p>
+<p><a href="https://booksy.com/en-us/1846614_hair-love-by-rose_hair-salon_38207_warrenton" target="_blank" rel="noopener">See add-ons on Booksy</a></p>
+</div>
+<div>
+<div class="grp"><h3>Cuts</h3><ul><li><span class="n">The Signature Cut</span><span class="d">1 hr</span><span class="p">$70</span></li><li><span class="n">Gentleman’s Cut</span><span class="d">40 min</span><span class="p">$60</span></li><li><span class="n">Little Gentleman’s Cut<small>Boys 8 and under</small></span><span class="d">25 min</span><span class="p">from $40</span></li><li><span class="n">Little girls haircut<small>Includes a blow dry</small></span><span class="d">1 hr</span><span class="p">$50</span></li></ul></div><div class="grp"><h3>Color</h3><ul><li><span class="n">Sun-Kissed Glow</span><span class="d">1 hr 30 min</span><span class="p">$75</span></li><li><span class="n">Root Retouch</span><span class="d">1 hr 30 min</span><span class="p">$100</span></li><li><span class="n">All-Over Color</span><span class="d">1 hr 40 min</span><span class="p">$130</span></li><li><span class="n">Sunlit Partial</span><span class="d">1 hr 30 min</span><span class="p">from $130</span></li><li><span class="n">Full Dimensional Glow</span><span class="d">2 hr 30 min</span><span class="p">from $160</span></li><li><span class="n">Custom color</span><span class="d">3 hr</span><span class="p">from $200</span></li><li><span class="n">Gloss Toner</span><span class="d">30 min</span><span class="p">Varies</span></li></ul></div><div class="grp"><h3>Curls, locs and texture</h3><ul><li><span class="n">Loc retwist</span><span class="d">2 hr</span><span class="p">from $150</span></li><li><span class="n">Keratin Silk Finish</span><span class="d">2 hr</span><span class="p">$250</span></li><li><span class="n">Natural texture enhancement</span><span class="d">30 min</span><span class="p">Varies</span></li></ul></div><div class="grp"><h3>Blowouts and styling</h3><ul><li><span class="n">The Signature Blowout</span><span class="d">30 min to 1 hr</span><span class="p">from $45</span></li><li><span class="n">Sleek Iron Finish</span><span class="d">30 min</span><span class="p">$25</span></li><li><span class="n">Signature Updo</span><span class="d">1 hr 30 min</span><span class="p">Varies</span></li><li><span class="n">Scalp Reset</span><span class="d">15 min</span><span class="p">$25</span></li></ul></div>
+<p style="margin-top:var(--s-6)"><a class="btn" href="https://link.booksy.com/hairlovebyrose" target="_blank" rel="noopener">Book with Rose</a></p>
+</div>
+</div></section>
+
+<section class="wrap sec row">
+<h2>Not sure what to book?</h2>
+<div class="stack">
+<p class="large">Send Rose two photos: your hair today and the hair you want. She’ll tell you which service to book, what it costs and how long it takes.</p>
+<p><a href="https://www.instagram.com/hairlovebyrose/" target="_blank" rel="noopener">Message her on Instagram</a></p>
+</div>
+</section>
+
+<section class="wrap sec row">
+<h2>Recent work</h2>
+<div class="stack-l">
+<div class="shots">
+<figure><div role="img" aria-label="Stand-in illustration: Full Dimensional Glow" style="height: 0px; border-radius: 0; background: #CFC6B8; position: relative; overflow: hidden; height: auto; aspect-ratio: 8 / 5"><div style="position: absolute; left: 50%; bottom: -8%; width: 84%; height: 34%; transform: translateX(-50%); border-radius: 50% 50% 0 0 / 70% 70% 0 0; background: #1F1B18"></div><div style="position: absolute; left: 50%; top: 8%; width: 54%; height: 88%; transform: translateX(-50%); border-radius: 50% 50% 14% 14% / 24% 24% 5% 5%; background: linear-gradient(180deg, #4A2F20 0%, rgba(74,47,32,0.85) 28%, rgba(74,47,32,0) 62%), linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0) 40%, rgba(0,0,0,0.2) 100%), repeating-linear-gradient(91deg, #CDAE78 0 4px, #E8D6AA 4px 6px, #CDAE78 6px 11px, #A88A58 11px 13px)"></div><div style="position: absolute; left: 8px; bottom: 8px; font: 10px/1.2 system-ui, sans-serif; background: rgba(20,17,14,0.78); color: #FFFFFF; padding: 3px 6px; border-radius: 4px">Stand-in for a real photo</div></div><figcaption>Full Dimensional Glow<span>from $160, 2 hr 30 min</span></figcaption></figure>
+<figure><div role="img" aria-label="Stand-in illustration: Gentleman’s Cut" style="height: 0px; border-radius: 0; background: #CFC6B8; position: relative; overflow: hidden; height: auto; aspect-ratio: 4 / 5"><div style="position: absolute; left: 50%; bottom: -8%; width: 84%; height: 34%; transform: translateX(-50%); border-radius: 50% 50% 0 0 / 70% 70% 0 0; background: #1F1B18"></div><div style="position: absolute; left: 50%; top: 46%; width: 22%; height: 30%; transform: translateX(-50%); background: #B98C6C"></div><div style="position: absolute; left: 50%; top: 14%; width: 44%; height: 44%; transform: translateX(-50%); border-radius: 50% 50% 46% 46% / 56% 56% 40% 40%; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 20%, rgba(255,255,255,0) 40%, rgba(0,0,0,0.2) 100%), repeating-linear-gradient(91deg, #2A1D17 0 4px, #40302A 4px 6px, #2A1D17 6px 11px, #150E0B 11px 13px)"></div><div style="position: absolute; left: 8px; bottom: 8px; font: 10px/1.2 system-ui, sans-serif; background: rgba(20,17,14,0.78); color: #FFFFFF; padding: 3px 6px; border-radius: 4px">Stand-in for a real photo</div></div><figcaption>Gentleman’s Cut<span>$60, 40 min</span></figcaption></figure>
+<figure><div role="img" aria-label="Stand-in illustration: Natural texture" style="height: 0px; border-radius: 0; background: #CFC6B8; position: relative; overflow: hidden; height: auto; aspect-ratio: 4 / 5"><div style="position: absolute; left: 50%; bottom: -8%; width: 84%; height: 34%; transform: translateX(-50%); border-radius: 50% 50% 0 0 / 70% 70% 0 0; background: #1F1B18"></div><div style="position: absolute; left: 50%; top: 10%; width: 66%; height: 64%; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(circle at 30% 30%, #40302A 0 2px, rgba(0,0,0,0) 3px) 0 0 / 14px 14px, radial-gradient(circle at 70% 70%, #150E0B 0 3px, rgba(0,0,0,0) 4px) 0 0 / 14px 14px, #2A1D17"></div><div style="position: absolute; left: 8px; bottom: 8px; font: 10px/1.2 system-ui, sans-serif; background: rgba(20,17,14,0.78); color: #FFFFFF; padding: 3px 6px; border-radius: 4px">Stand-in for a real photo</div></div><figcaption>Natural texture<span>Price varies</span></figcaption></figure>
+</div>
+<p><a href="https://www.instagram.com/hairlovebyrose/" target="_blank" rel="noopener">More of her work on Instagram</a></p>
+</div>
+</section>
+
+<section class="wrap sec row">
+<h2>What clients say</h2>
+<div class="stack">
+<blockquote>“won’t go to anyone else but rose!”</blockquote>
+<p class="small quiet">Alison, after a Root Retouch. Verified on Booksy, November 2026.</p>
+<p>She has five reviews so far and all five are five stars. <a href="https://booksy.com/en-us/1846614_hair-love-by-rose_hair-salon_38207_warrenton" target="_blank" rel="noopener">Read them on Booksy</a></p>
+</div>
+</section>
+
+<section class="wrap sec row" id="find">
+<h2>Find us</h2>
+<div class="find">
+<div class="stack">
+<p class="addr">100 E Franklin St<br>Warrenton, VA 20186</p>
+<p><a href="https://www.google.com/maps/dir/?api=1&destination=100+E+Franklin+St+Warrenton+VA+20186" target="_blank" rel="noopener">Get directions</a></p>
+<p class="small quiet">There is parking. Cards are fine. Kids are welcome.</p>
+</div>
+<dl aria-label="Opening hours">
+<dt>Monday</dt><dd>12 to 4</dd><dt>Tuesday</dt><dd>10 to 4</dd><dt>Wednesday</dt><dd>10 to 4</dd><dt>Friday</dt><dd>10 to 5</dd>
+<dt class="off">Thu, Sat, Sun</dt><dd class="off">Closed</dd>
+</dl>
+</div>
+</section>
+
+<div class="wrap"><section class="ask row">
+<h2>Did Rose do your hair?</h2>
+<div class="stack">
+<p class="large">Tell the next person. Two sentences is plenty.</p>
+<p><button class="btn" type="button" id="rev" aria-controls="revmsg" aria-expanded="false">Leave a review</button></p>
+<p class="small quiet" id="revmsg" hidden>Demo note: this will open her Google review page once the listing exists. For now, booked clients can review on <a href="https://booksy.com/en-us/1846614_hair-love-by-rose_hair-salon_38207_warrenton" target="_blank" rel="noopener">Booksy</a>.</p>
+</div>
+</section></div>
+</main>
+
+
+
+<footer>
+<div class="dev swatch stripe tall" aria-hidden="true"><i style="background:#2B1B14"></i><i style="background:#5A3A28"></i><i style="background:#8A5A3A"></i><i style="background:#B5683C"></i><i style="background:#CDA56E"></i><i style="background:#E8D3A6"></i></div>
+<div class="dev apothecary rule2" aria-hidden="true"></div>
+<div class="wrap"><span><strong>Maison Rose</strong>, Warrenton, Virginia. See you in the chair.</span><span class="l"><a href="deco-about.html">About</a><a href="https://www.instagram.com/hairlovebyrose/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/hairlovebyrose.hair/" target="_blank" rel="noopener">Facebook</a></span></div>
+</footer>
+
+<div class="bar" id="bar"><span>Cuts from $40.<br>Color from $75.</span><a class="btn s" href="https://link.booksy.com/hairlovebyrose" target="_blank" rel="noopener">Book with Rose</a></div>
+
+
+<script>
+(function () {
+  var rev = document.getElementById('rev'), msg = document.getElementById('revmsg');
+  if (rev && msg) rev.addEventListener('click', function () { msg.hidden = !msg.hidden; rev.setAttribute('aria-expanded', String(!msg.hidden)); });
+  var bar = document.getElementById('bar');
+  if (bar) { var f = function () { bar.classList.toggle('on', window.scrollY > 520); }; window.addEventListener('scroll', f, { passive: true }); f(); }
+  var el = document.getElementById('now');
+  if (!el) return;
+  // Open-now sentence in Warrenton time. Hours and closed dates are from her Booksy page.
+  var H = { 1: [12, 16], 2: [10, 16], 3: [10, 16], 5: [10, 17] }, CLOSED = ['2026-11-30', '2026-12-07'];
+  var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  function fmt(h) { return (h > 12 ? h - 12 : h) + (h >= 12 ? ' pm' : ' am'); }
+  try {
+    var p = {};
+    new Intl.DateTimeFormat('en-US', { timeZone: 'America/New_York', weekday: 'short', hour: 'numeric', minute: 'numeric', hour12: false, year: 'numeric', month: '2-digit', day: '2-digit' })
+      .formatToParts(new Date()).forEach(function (x) { p[x.type] = x.value; });
+    var day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday), now = (parseInt(p.hour, 10) % 24) + parseInt(p.minute, 10) / 60;
+    var today = p.year + '-' + p.month + '-' + p.day, h = CLOSED.indexOf(today) < 0 ? H[day] : null;
+    if (h && now >= h[0] && now < h[1]) { el.classList.add('yes'); el.textContent = 'Open now, until ' + fmt(h[1]) + '.'; }
+    else if (h && now < h[0]) { el.textContent = 'Opens today at ' + fmt(h[0]) + '.'; }
+    else { for (var i = 1; i <= 7; i++) { var d = (day + i) % 7; if (H[d]) { el.textContent = 'Closed now. Opens ' + (i === 1 ? 'tomorrow' : DAYS[d]) + ' at ' + fmt(H[d][0]) + '.'; break; } } }
+  } catch (e) {}
+})();
+</script>
+</body>
+</html>
