@@ -148,6 +148,38 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 .ph { display:inline-block; background:var(--tint); color:var(--quiet); font-size:var(--t-1); padding:6px 12px; }
 
 .facts-about{list-style:none;margin:var(--s-2) 0 0;padding:0;border-top:1px solid var(--ink)}.facts-about li{padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--t-2)}
+
+/* crit pass: one heading scale, hero on the page grid, even section rhythm */
+:root{--h1:clamp(36px,4.3vw,56px);--h2:clamp(26px,2.5vw,34px);--s-sec:clamp(64px,7.5vw,104px)}
+:root[data-look="apothecary"]{--h1:clamp(42px,5vw,66px);--h2:clamp(31px,3.1vw,42px)}
+:root[data-look="deco"]{--h1:clamp(36px,4.3vw,56px);--h2:clamp(28px,2.8vw,38px)}
+.display{font-size:var(--h1)}
+h2,h2.display{font-family:var(--display);font-weight:var(--display-w);letter-spacing:var(--display-ls);line-height:1.08;font-size:var(--h2)}
+.hero{padding-top:clamp(28px,4.2vw,56px)}
+.hero h1{max-width:none!important;margin:0 0 clamp(16px,2vw,24px)}
+.stack>h1+*{margin-top:0}
+.hero .row{margin-top:0!important;grid-template-columns:minmax(0,4fr) minmax(0,8fr);column-gap:var(--gap)}
+main#top .hero .row{align-items:center}
+main#top .hero .row>div:last-child{order:-1}
+main#top .hero .lede+p{margin-top:var(--s-1)!important}
+.fan{width:clamp(72px,7vw,96px)}
+.fanrow{margin-bottom:var(--s-4)}
+:root[data-look="deco"] .hero{padding-top:clamp(20px,2.4vw,28px)}
+.act{margin-top:var(--s-4)}
+.now{margin-top:var(--s-3)}
+#prices{margin-top:clamp(40px,5vw,64px);padding:clamp(56px,6.5vw,88px) 0}
+[data-look="swatch"] #prices{margin-top:0}
+.grp h3{font-size:var(--t-2);font-weight:700;letter-spacing:0;padding-bottom:10px}
+.grp .n,.grp .p{font-size:19px}
+.grp .d{font-size:var(--t-1)}
+.grp li{padding:13px 0}
+blockquote{font-family:var(--text);font-size:var(--t-5);font-weight:600;line-height:1.25;max-width:24ch}
+blockquote+p{margin-top:var(--s-1)!important}
+p+blockquote{margin-top:var(--s-5)!important}
+blockquote~p:last-child{margin-top:var(--s-5)!important}
+.ask{align-items:start}
+.sec{padding-top:var(--s-sec)}
+@media (max-width:859px){.hero .row{grid-template-columns:minmax(0,1fr);row-gap:var(--s-5)}main#top .hero .row>div:last-child{order:0}}
 </style>
 </head>
 <body>
@@ -164,10 +196,10 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 
 <main id="about">
 <div class="wrap hero">
-<h1 class="display">About Rose</h1>
 <div class="row" style="align-items:start">
 <div><img src="img/atwork.jpg" alt="Rose working on a client’s hair" loading="lazy" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center 20%;border-radius:var(--hero-r)"></div>
 <div class="stack">
+<h1 class="display">About Rose</h1>
 <p class="lede">I love doing hair.</p>
 <p>Color, cuts, curls, locs, kids who won’t sit still. I’m Rose Wilkers, and I work in Warrenton, Virginia. It’s just me, so I do your whole appointment.</p>
 <p>My favorite part is turning the chair around at the end.</p>
