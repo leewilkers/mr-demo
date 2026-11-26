@@ -150,15 +150,23 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 .shots{grid-template-columns:repeat(4,minmax(0,1fr))!important}.shots figure:first-child{grid-column:auto!important}@media (max-width:719px){.shots{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
 
 
-.topchips>div{flex:1 1 0;min-width:0;display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:18px 20px}
-.topchips b{font-size:26px;line-height:1;font-weight:700;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
-.topchips span{font:500 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em}
-@media (max-width:1023px){.topchips>div{flex-direction:column;align-items:flex-start;gap:10px;padding:14px 12px}}
-@media (max-width:719px){.topchips>div{padding:10px 8px;gap:7px}.topchips b{font-size:17px}.topchips span{font-size:9.5px;letter-spacing:.02em}}
+
+.hero{padding-top:clamp(32px,4.5vw,56px)}
+.hero .row{margin-top:0;grid-template-columns:minmax(0,8fr) minmax(0,4fr);align-items:center;column-gap:clamp(32px,6vw,96px)}
+.hero .row>div:last-child{width:100%;max-width:272px;justify-self:end}
+.hero h1{font-size:clamp(36px,4.3vw,56px);max-width:none!important;margin-bottom:clamp(18px,2.2vw,28px)}
+.sec{padding-top:calc(var(--s-sec)*1.3)}
+@media (max-width:859px){.hero .row{grid-template-columns:minmax(0,1fr);row-gap:var(--s-5)}.hero .row>div:last-child{max-width:300px;justify-self:start}}
+
+.chips{flex-wrap:wrap;margin:clamp(32px,3.6vw,48px) 0 0}
+.chips>div{flex:1 1 16.66%;min-width:0;height:clamp(104px,9.5vw,132px);padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between}
+.chips b{font-size:clamp(24px,2.4vw,36px);line-height:1;font-weight:700;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
+.chips span{font:500 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em}
+@media (max-width:719px){.chips>div{flex-basis:33.33%;height:96px;padding:12px}.chips b{font-size:22px}.chips span{font-size:12px;letter-spacing:.04em}}
 </style>
 </head>
 <body>
-<div class="dev swatch topchips" role="img" aria-label="Six hair color swatches, from darkest brown to lightest blonde"><div style="background:#2B1B14;color:#fff" aria-hidden="true"><b>2N</b><span>#2B1B14</span></div><div style="background:#5A3A28;color:#fff" aria-hidden="true"><b>4N</b><span>#5A3A28</span></div><div style="background:#8A5A3A;color:#fff" aria-hidden="true"><b>6G</b><span>#8A5A3A</span></div><div style="background:#B5683C;color:#111" aria-hidden="true"><b>7C</b><span>#B5683C</span></div><div style="background:#CDA56E;color:#111" aria-hidden="true"><b>8G</b><span>#CDA56E</span></div><div style="background:#E8D3A6;color:#111" aria-hidden="true"><b>10N</b><span>#E8D3A6</span></div></div>
+<div class="dev swatch stripe" aria-hidden="true"><i style="background:#2B1B14"></i><i style="background:#5A3A28"></i><i style="background:#8A5A3A"></i><i style="background:#B5683C"></i><i style="background:#CDA56E"></i><i style="background:#E8D3A6"></i></div>
 <div class="dev apothecary rule2" aria-hidden="true"></div>
 
 <header><div class="wrap">
@@ -170,9 +178,9 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 <main id="top">
 <div class="wrap hero">
 <div class="dev deco fanrow" aria-hidden="true"><div class="fan"></div></div>
-<h1 class="display">A hair salon in Warrenton, Virginia.</h1>
 <div class="row">
 <div>
+<h1 class="display">A hair salon in Warrenton, Virginia.</h1>
 <p class="lede">All hair welcome.</p>
 <p class="large quiet" style="margin-top:var(--s-2)">I’m Rose Wilkers. I do cuts, color, curls and locs.</p>
 <div class="act"><a class="btn" href="https://link.booksy.com/hairlovebyrose" target="_blank" rel="noopener">Book with Rose</a><a href="#prices">See the prices first</a></div>
@@ -180,6 +188,15 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 </div>
 <div><video autoplay muted loop playsinline preload="metadata" poster="img/chair.jpg" aria-label="Rose with a smiling client in the chair" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center 25%;border-radius:var(--hero-r);background:#ddd"><source src="https://d2kt395i2p6b75.cloudfront.net/01KZ9894CN1RD8QP2J9WZBFEVP/media/videos/01KZ9898Z6E4BDN0VKTEH499MJ/hls/playlist_720p.m4s" type="video/mp4"></video></div>
 </div>
+</div>
+
+<div class="dev swatch chips" role="img" aria-label="Six hair color swatches, from darkest brown to lightest blonde">
+<div style="background:#2B1B14;color:#fff" aria-hidden="true"><b>2N</b><span>#2B1B14</span></div>
+<div style="background:#5A3A28;color:#fff" aria-hidden="true"><b>4N</b><span>#5A3A28</span></div>
+<div style="background:#8A5A3A;color:#fff" aria-hidden="true"><b>6G</b><span>#8A5A3A</span></div>
+<div style="background:#B5683C;color:#111" aria-hidden="true"><b>7C</b><span>#B5683C</span></div>
+<div style="background:#CDA56E;color:#111" aria-hidden="true"><b>8G</b><span>#CDA56E</span></div>
+<div style="background:#E8D3A6;color:#111" aria-hidden="true"><b>10N</b><span>#E8D3A6</span></div>
 </div>
 
 <section id="prices"><div class="wrap row">

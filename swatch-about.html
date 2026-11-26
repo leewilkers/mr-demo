@@ -149,15 +149,16 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 
 .facts-about{list-style:none;margin:var(--s-2) 0 0;padding:0;border-top:1px solid var(--ink)}.facts-about li{padding:10px 0;border-bottom:1px solid var(--line);font-size:var(--t-2)}
 
-.topchips>div{flex:1 1 0;min-width:0;display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:18px 20px}
-.topchips b{font-size:26px;line-height:1;font-weight:700;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
-.topchips span{font:500 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em}
-@media (max-width:1023px){.topchips>div{flex-direction:column;align-items:flex-start;gap:10px;padding:14px 12px}}
-@media (max-width:719px){.topchips>div{padding:10px 8px;gap:7px}.topchips b{font-size:17px}.topchips span{font-size:9.5px;letter-spacing:.02em}}
+
+.chips{flex-wrap:wrap;margin:clamp(32px,3.6vw,48px) 0 0}
+.chips>div{flex:1 1 16.66%;min-width:0;height:clamp(104px,9.5vw,132px);padding:14px 16px;display:flex;flex-direction:column;justify-content:space-between}
+.chips b{font-size:clamp(24px,2.4vw,36px);line-height:1;font-weight:700;letter-spacing:-.02em;font-variant-numeric:lining-nums tabular-nums}
+.chips span{font:500 13px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.08em}
+@media (max-width:719px){.chips>div{flex-basis:33.33%;height:96px;padding:12px}.chips b{font-size:22px}.chips span{font-size:12px;letter-spacing:.04em}}
 </style>
 </head>
 <body>
-<div class="dev swatch topchips" role="img" aria-label="Six hair color swatches, from darkest brown to lightest blonde"><div style="background:#2B1B14;color:#fff" aria-hidden="true"><b>2N</b><span>#2B1B14</span></div><div style="background:#5A3A28;color:#fff" aria-hidden="true"><b>4N</b><span>#5A3A28</span></div><div style="background:#8A5A3A;color:#fff" aria-hidden="true"><b>6G</b><span>#8A5A3A</span></div><div style="background:#B5683C;color:#111" aria-hidden="true"><b>7C</b><span>#B5683C</span></div><div style="background:#CDA56E;color:#111" aria-hidden="true"><b>8G</b><span>#CDA56E</span></div><div style="background:#E8D3A6;color:#111" aria-hidden="true"><b>10N</b><span>#E8D3A6</span></div></div>
+<div class="dev swatch stripe" aria-hidden="true"><i style="background:#2B1B14"></i><i style="background:#5A3A28"></i><i style="background:#8A5A3A"></i><i style="background:#B5683C"></i><i style="background:#CDA56E"></i><i style="background:#E8D3A6"></i></div>
 <div class="dev apothecary rule2" aria-hidden="true"></div>
 
 <header><div class="wrap">
@@ -192,6 +193,15 @@ footer .l { display:flex; gap:var(--s-4); } footer .l a { padding:10px 0; }
 </div>
 </div>
 </div>
+<div class="dev swatch chips" role="img" aria-label="Six hair color swatches, from darkest brown to lightest blonde">
+<div style="background:#2B1B14;color:#fff" aria-hidden="true"><b>2N</b><span>#2B1B14</span></div>
+<div style="background:#5A3A28;color:#fff" aria-hidden="true"><b>4N</b><span>#5A3A28</span></div>
+<div style="background:#8A5A3A;color:#fff" aria-hidden="true"><b>6G</b><span>#8A5A3A</span></div>
+<div style="background:#B5683C;color:#111" aria-hidden="true"><b>7C</b><span>#B5683C</span></div>
+<div style="background:#CDA56E;color:#111" aria-hidden="true"><b>8G</b><span>#CDA56E</span></div>
+<div style="background:#E8D3A6;color:#111" aria-hidden="true"><b>10N</b><span>#E8D3A6</span></div>
+</div>
+
 </main>
 
 <footer>
