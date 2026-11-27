@@ -181,6 +181,12 @@ blockquote~p:last-child{margin-top:var(--s-5)!important}
 .ask{align-items:start}
 .sec{padding-top:var(--s-sec)}
 @media (max-width:859px){.hero .row{grid-template-columns:minmax(0,1fr);row-gap:var(--s-5)}main#top .hero .row>div:last-child{order:0}}
+
+/* copy pass: hero actions stack on the text edge; quotes sit flush */
+.hero .act{flex-direction:column;align-items:flex-start;gap:var(--s-3)}
+.hero .act a:not(.btn){padding:2px 0}
+.now{margin-top:var(--s-2)}
+blockquote{text-indent:0}
 </style>
 </head>
 <body>
@@ -200,7 +206,7 @@ blockquote~p:last-child{margin-top:var(--s-5)!important}
 <div>
 <h1 class="display">A hair salon in Warrenton, Virginia.</h1>
 <p class="lede">All hair welcome.</p>
-<p class="large quiet" style="margin-top:var(--s-2)">I’m Rose Wilkers. I do cuts, color, curls and locs.</p>
+<p class="large quiet" style="margin-top:var(--s-2)">Cuts, color, curls and locs.</p>
 <div class="act"><a class="btn" href="https://link.booksy.com/hairlovebyrose" target="_blank" rel="noopener">Book with Rose</a><a href="#prices">See the prices first</a></div>
 <p class="now" id="now">Open Monday, Tuesday, Wednesday and Friday.</p>
 </div>
@@ -211,7 +217,7 @@ blockquote~p:last-child{margin-top:var(--s-5)!important}
 <section id="prices"><div class="wrap row">
 <div class="head stack">
 <h2 class="display">Prices</h2>
-<p class="quiet">Every service, what it costs and how long it takes. A price marked “from” can go up with length and thickness.</p>
+<p class="quiet">“From” prices go up with length and thickness.</p>
 <p><a href="https://booksy.com/en-us/1846614_hair-love-by-rose_hair-salon_38207_warrenton" target="_blank" rel="noopener">See add-ons on Booksy</a></p>
 </div>
 <div>
@@ -223,7 +229,7 @@ blockquote~p:last-child{margin-top:var(--s-5)!important}
 <section class="wrap sec row">
 <h2>Not sure what to book?</h2>
 <div class="stack">
-<p class="large">Send me two photos: your hair today and the hair you want. I’ll tell you which service to book, what it costs and how long it takes.</p>
+<p class="large">Send me a photo of your hair and one of what you want. I’ll tell you what to book.</p>
 <p><a href="https://www.instagram.com/hairlovebyrose/" target="_blank" rel="noopener">Message me on Instagram</a></p>
 </div>
 </section>
@@ -241,7 +247,7 @@ blockquote~p:last-child{margin-top:var(--s-5)!important}
 <figure><img src="img/short.jpg" alt="Short cut with faded sides" loading="lazy" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center 40%;border-radius:0"></figure>
 <figure><img src="img/curls.jpg" alt="Defined curls with highlights, from behind" loading="lazy" style="display:block;width:100%;aspect-ratio:4 / 5;object-fit:cover;object-position:center;border-radius:0"></figure>
 </div>
-<p><a href="https://www.instagram.com/hairlovebyrose/" target="_blank" rel="noopener">More of my work on Instagram</a></p>
+<p><a href="https://www.instagram.com/hairlovebyrose/" target="_blank" rel="noopener">More on Instagram</a></p>
 </div>
 </section>
 
@@ -249,10 +255,10 @@ blockquote~p:last-child{margin-top:var(--s-5)!important}
 <h2>What clients say</h2>
 <div class="stack">
 <blockquote>“won’t go to anyone else but rose!”</blockquote>
-<p class="small quiet">Alison, after a Root Retouch. Verified on Booksy, November 2026.</p>
+<p class="small quiet">Alison, Root Retouch. Booksy, November 2026.</p>
 <blockquote>“You always work magic on my sweet girl Rose”</blockquote>
-<p class="small quiet">maggimay22, on Instagram.</p>
-<p>I have five reviews so far and all five are five stars. <a href="https://booksy.com/en-us/1846614_hair-love-by-rose_hair-salon_38207_warrenton" target="_blank" rel="noopener">Read them on Booksy</a></p>
+<p class="small quiet">maggimay22, Instagram.</p>
+<p>Five reviews, all five stars. <a href="https://booksy.com/en-us/1846614_hair-love-by-rose_hair-salon_38207_warrenton" target="_blank" rel="noopener">Read them on Booksy</a></p>
 </div>
 </section>
 
@@ -262,7 +268,7 @@ blockquote~p:last-child{margin-top:var(--s-5)!important}
 <div class="stack">
 <p class="addr">100 E Franklin St<br>Warrenton, VA 20186</p>
 <p><a href="https://www.google.com/maps/dir/?api=1&destination=100+E+Franklin+St+Warrenton+VA+20186" target="_blank" rel="noopener">Get directions</a></p>
-<p class="small quiet">There is parking. Cards are fine. Kids are welcome.</p>
+<p class="small quiet">Parking. Cards accepted. Kids welcome.</p>
 </div>
 <dl aria-label="Opening hours">
 <dt>Monday</dt><dd>12 to 4</dd><dt>Tuesday</dt><dd>10 to 4</dd><dt>Wednesday</dt><dd>10 to 4</dd><dt>Friday</dt><dd>10 to 5</dd>
@@ -274,7 +280,7 @@ blockquote~p:last-child{margin-top:var(--s-5)!important}
 <div class="wrap"><section class="ask row">
 <h2>Did I do your hair?</h2>
 <div class="stack">
-<p class="large">Tell the next person. Two sentences is plenty.</p>
+<p class="large">Tell the next person.</p>
 <p><button class="btn" type="button" id="rev" aria-controls="revmsg" aria-expanded="false">Leave a review</button></p>
 <p class="small quiet" id="revmsg" hidden>Demo note: this will open my Google review page once the listing exists. For now, booked clients can review on <a href="https://booksy.com/en-us/1846614_hair-love-by-rose_hair-salon_38207_warrenton" target="_blank" rel="noopener">Booksy</a>.</p>
 </div>
